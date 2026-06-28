@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>StockPro Dashboard</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar navbar-dark navbar-expand-lg">
+
+<div class="container">
+
+<a class="navbar-brand fw-bold"
+href="index.html">
+
+StockPro
+
+</a>
+
+<div>
+
+<a href="market.html"
+class="btn btn-success me-2">
+
+Market
+
+</a>
+
+<a href="portfolio.html"
+class="btn btn-outline-light me-2">
+
+Portfolio
+
+</a>
+
+<a href="pro.html"
+class="btn btn-outline-light me-2">
+
+Pro
+
+</a>
+
+<a href="login.html"
+class="btn btn-outline-light">
+
+Login
+
+</a>
+
+</div>
+
+</div>
+
+</nav>
+
+<!-- MAIN -->
+
+<div class="container py-4">
+
+<!-- HERO -->
+
+<div class="hero">
+
+<h1 class="display-4 fw-bold">
+
+Stock Market Dashboard
+
+</h1>
+
+<p class="lead">
+
+Track market prices and manage investments.
+
+</p>
+
+<a href="market.html"
+class="btn btn-dark btn-lg mt-3">
+
+Explore Market
+
+</a>
+
+</div>
+
+<!-- SEARCH + CURRENCY + LOCATION -->
+
+<div class="row mt-4">
+
+<div class="col-md-5 mb-3">
+
+<input
+type="text"
+id="searchInput"
+class="form-control"
+placeholder="Search Company...">
+
+</div>
+
+<div class="col-md-3 mb-3">
+
+<select
+id="currencySelect"
+class="form-select">
+
+<option value="USD">
+
+USD $
+
+</option>
+
+<option value="EUR">
+
+EUR €
+
+</option>
+
+<option value="GBP">
+
+GBP £
+
+</option>
+
+</select>
+
+</div>
+
+<div class="col-md-4 mb-3">
+
+<div class="card-custom text-center">
+
+📍
+<span id="countryText">
+
+Germany
+
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- STOCKS -->
+
+<h2 class="mt-4 mb-4">
+
+Top Stocks
+
+</h2>
+
+<div class="row"
+id="stockContainer">
+
+<div class="col-md-4 mb-4 stock-card">
+
+<div class="card-custom">
+
+<h3>Apple</h3>
+
+<p class="stock-up">
+
++2.5%
+
+</p>
+
+<h2 class="stock-price">
+
+$185
+
+</h2>
+
+</div>
+
+</div>
+
+<div class="col-md-4 mb-4 stock-card">
+
+<div class="card-custom">
+
+<h3>Tesla</h3>
+
+<p class="stock-down">
+
+-1.1%
+
+</p>
+
+<h2 class="stock-price">
+
+$242
+
+</h2>
+
+</div>
+
+</div>
+
+<div class="col-md-4 mb-4 stock-card">
+
+<div class="card-custom">
+
+<h3>Amazon</h3>
+
+<p class="stock-up">
+
++1.2%
+
+</p>
+
+<h2 class="stock-price">
+
+$178
+
+</h2>
+
+</div>
+
+</div>
+
+<div class="col-md-4 mb-4 stock-card">
+
+<div class="card-custom">
+
+<h3>Google</h3>
+
+<p class="stock-up">
+
++3.1%
+
+</p>
+
+<h2 class="stock-price">
+
+$172
+
+</h2>
+
+</div>
+
+</div>
+
+<div class="col-md-4 mb-4 stock-card">
+
+<div class="card-custom">
+
+<h3>Microsoft</h3>
+
+<p class="stock-up">
+
++1.9%
+
+</p>
+
+<h2 class="stock-price">
+
+$455
+
+</h2>
+
+</div>
+
+</div>
+
+<div class="col-md-4 mb-4 stock-card">
+
+<div class="card-custom">
+
+<h3>NVIDIA</h3>
+
+<p class="stock-up">
+
++4.5%
+
+</p>
+
+<h2 class="stock-price">
+
+$125
+
+</h2>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+Frontend Programming Final Project
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
