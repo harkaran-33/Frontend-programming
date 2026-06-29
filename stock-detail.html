@@ -1,34 +1,32 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Stock Detail</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
 <style>
 
 body{
-background:#050505;
+background:#050816;
 color:white;
 font-family:Arial,sans-serif;
 }
 
 .navbar{
-background:#111827;
+background:#0f172a;
 }
 
 .card-dark{
 background:#111827;
 border-radius:20px;
-padding:25px;
+padding:20px;
 margin-bottom:20px;
 }
 
@@ -41,15 +39,12 @@ font-weight:bold;
 color:#22c55e;
 }
 
-.negative{
-color:#ff3040;
-}
-
 .metric{
-text-align:center;
-padding:20px;
 background:#111827;
+padding:20px;
 border-radius:15px;
+text-align:center;
+height:100%;
 }
 
 .news-card{
@@ -59,10 +54,15 @@ border-radius:15px;
 margin-bottom:15px;
 }
 
+.period-btn{
+margin-right:8px;
+margin-bottom:10px;
+}
+
 .footer{
 text-align:center;
 padding:20px;
-color:#888;
+color:#999;
 }
 
 </style>
@@ -105,7 +105,7 @@ Login
 
 <div class="container py-4">
 
-<h1 class="mb-4">
+<h1 class="mb-3">
 Apple Inc. (AAPL)
 </h1>
 
@@ -120,7 +120,7 @@ $185.25
 </div>
 
 <h4 class="positive">
-+2.50%
++2.50% Today
 </h4>
 
 </div>
@@ -143,23 +143,23 @@ SELL
 
 <div class="mb-3">
 
-<button class="btn btn-light btn-sm me-2">
+<button class="btn btn-light period-btn" onclick="changePeriod('1D')">
 1D
 </button>
 
-<button class="btn btn-outline-light btn-sm me-2">
+<button class="btn btn-outline-light period-btn" onclick="changePeriod('1M')">
 1M
 </button>
 
-<button class="btn btn-outline-light btn-sm me-2">
+<button class="btn btn-outline-light period-btn" onclick="changePeriod('3M')">
 3M
 </button>
 
-<button class="btn btn-outline-light btn-sm me-2">
+<button class="btn btn-outline-light period-btn" onclick="changePeriod('1Y')">
 1Y
 </button>
 
-<button class="btn btn-outline-light btn-sm">
+<button class="btn btn-outline-light period-btn" onclick="changePeriod('5Y')">
 5Y
 </button>
 
@@ -173,7 +173,7 @@ SELL
 
 <div class="row mt-4">
 
-<div class="col-md-3">
+<div class="col-md-3 mb-3">
 
 <div class="metric">
 
@@ -185,7 +185,7 @@ SELL
 
 </div>
 
-<div class="col-md-3">
+<div class="col-md-3 mb-3">
 
 <div class="metric">
 
@@ -197,7 +197,7 @@ SELL
 
 </div>
 
-<div class="col-md-3">
+<div class="col-md-3 mb-3">
 
 <div class="metric">
 
@@ -209,7 +209,7 @@ SELL
 
 </div>
 
-<div class="col-md-3">
+<div class="col-md-3 mb-3">
 
 <div class="metric">
 
@@ -223,44 +223,20 @@ SELL
 
 </div>
 
-<h2 class="mt-5 mb-4">
+<h2 class="mt-5 mb-3">
 Latest News
 </h2>
 
 <div class="news-card">
-
-<h5>
-Apple launches new AI features
-</h5>
-
-<p>
-Apple announced new AI-powered features across its ecosystem.
-</p>
-
+Apple launches new AI-powered features for iPhone and Mac.
 </div>
 
 <div class="news-card">
-
-<h5>
-Apple earnings beat expectations
-</h5>
-
-<p>
-Quarterly earnings exceeded analyst forecasts.
-</p>
-
+Apple stock gains after strong quarterly earnings.
 </div>
 
 <div class="news-card">
-
-<h5>
-Analysts remain bullish on AAPL
-</h5>
-
-<p>
-Several firms maintain buy ratings for Apple stock.
-</p>
-
+Analysts remain bullish on long-term Apple growth.
 </div>
 
 </div>
@@ -271,123 +247,72 @@ Frontend Programming Final Project
 
 <script>
 
+const chartData = {
+
+"1D":[21500,21450,21300,21150,21000,20800,20950,21050,20900,20800],
+
+"1M":[18000,18200,18500,18800,19000,19300,19500,19800,20100,20500],
+
+"3M":[15000,15500,16000,16800,17500,18000,18800,19500,20000,20500],
+
+"1Y":[10000,11500,12500,14000,15500,17000,18000,19000,19800,20500],
+
+"5Y":[3000,4500,6000,8500,11000,13500,15500,17500,19000,20500]
+
+};
+
+const categories = [
+
+"1","2","3","4","5",
+"6","7","8","9","10"
+
+];
+
 var options = {
 
-chart: {
-
-type: 'area',
-
-height: 500,
-
-toolbar: {
-show: false
+chart:{
+type:'area',
+height:500,
+toolbar:{
+show:false
+},
+background:'#111827'
 },
 
-background: '#111827'
+theme:{
+mode:'dark'
 },
 
-theme: {
-mode: 'dark'
-},
-
-series: [{
-
-name: 'AAPL',
-
-data: [
-
-21500,
-21480,
-21400,
-21350,
-21200,
-21150,
-21000,
-20850,
-20950,
-20800,
-20700,
-20820,
-20900,
-21000,
-20950,
-21050,
-20980,
-20850,
-20750,
-20650,
-20850,
-20700,
-20600,
-20500
-
-]
-
+series:[{
+name:'AAPL',
+data:chartData["1D"]
 }],
 
-stroke: {
+colors:['#ff3040'],
 
-curve: 'smooth',
-
-width: 3
+stroke:{
+curve:'smooth',
+width:3
 },
 
-colors: ['#ff3040'],
-
-fill: {
-
-type: 'gradient',
-
-gradient: {
-
-shadeIntensity: 1,
-
-opacityFrom: 0.6,
-
-opacityTo: 0.05
+fill:{
+type:'gradient',
+gradient:{
+opacityFrom:0.6,
+opacityTo:0.05
 }
-
 },
 
-dataLabels: {
-enabled: false
+dataLabels:{
+enabled:false
 },
 
-grid: {
-borderColor: '#222'
+grid:{
+borderColor:'#222'
 },
 
-xaxis: {
-
-categories: [
-
-'09:00',
-'09:30',
-'10:00',
-'10:30',
-'11:00',
-'11:30',
-'12:00',
-'12:30',
-'13:00',
-'13:30',
-'14:00',
-'14:30',
-'15:00',
-'15:30',
-'16:00',
-'16:30',
-'17:00',
-'17:30',
-'18:00',
-'18:30',
-'19:00',
-'19:30',
-'20:00',
-'20:30'
-
-]
-
+xaxis:{
+categories:categories
 }
 
 };
@@ -400,8 +325,17 @@ options
 
 chart.render();
 
+function changePeriod(period){
+
+chart.updateSeries([
+{
+data: chartData[period]
+}
+]);
+
+}
+
 </script>
 
 </body>
-
 </html>
