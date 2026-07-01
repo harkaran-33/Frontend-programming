@@ -38,3 +38,16 @@ background:#1e293b;
 padding:20px;
 border-radius:20px;
 }
+
+
+.light-theme{
+background:#f8fafc;
+color:#111827;
+}
+.light-theme .navbar{
+background:#ffffff;
+}
+.light-theme .card-custom{
+background:#ffffff;
+color:#111827;
+}

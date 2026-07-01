@@ -102,3 +102,18 @@ if (countryText) {
 countryText.innerHTML =
 "Germany";
 }
+
+// Theme Toggle
+const themeBtn=document.getElementById("themeToggle");
+if(themeBtn){
+if(localStorage.getItem("theme")==="light"){
+document.body.classList.add("light-theme");
+}
+themeBtn.addEventListener("click",()=>{
+document.body.classList.toggle("light-theme");
+localStorage.setItem(
+"theme",
+document.body.classList.contains("light-theme") ? "light" : "dark"
+);
+});
+}
